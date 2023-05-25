@@ -1,0 +1,99 @@
+### User sing up endpoint
+POST http://localhost:3002/v1/user
+Content-Type: application/json
+
+{
+    "name": "Yashashvi",
+    "company": "Company name",
+    "address": "Anything",
+    "phone": "423456789",
+    "email": "e2@e.com",
+    "password": "secret222"
+}
+### User sing in endpoint
+POST http://localhost:3002/v1/user/login
+Content-Type: application/json 
+
+{
+    "email": "e2@e.com",
+    "password": "secret222"   
+}
+
+### Get a user profile endpoint
+GET  http://localhost:3002/v1/user
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImUyQGUuY29tIiwiaWF0IjoxNjc1NTg0OTEyLCJleHAiOjE2NzU2NzEzMTJ9.Idpy6pi7JsiVTxRZ3691mOVSlmxEDGX59gFhCTm5isE
+
+
+###Token routers
+
+### Get refreshed token
+GET http://localhost:3002/v1/tokens
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImUyQGUuY29tIiwiaWF0IjoxNjc1NTg2OTUzLCJleHAiOjE2NzgxNzg5NTN9.PdlemsltJeefd0I19ncLGWW6teyk812nbzG1bJyiqn4
+
+
+
+# eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImUyQGUuY29tIiwiaWF0IjoxNjA0OTc0MTcyLCJleHAiOjE2MDQ5NzUwNzJ9.wvNH_c-yaWd05N6sPx3Y47AtJIIP9dXNCOIyVEjUO88
+
+
+#### Password reset request endpoints
+POST http://localhost:3001/v1/user/reset-password
+Content-Type: application/json 
+
+{
+    "email": "e2@e.com"
+}
+#### Update new password endpoint
+PATCH  http://localhost:3001/v1/user/reset-password
+Content-Type: application/json 
+
+{
+    "email": "e2@e.com",
+    "pin": "674783",
+    "newPassword": "password"
+}
+
+#### user logout endpoint
+DELETE http://localhost:3002/v1/user/logout
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImUyQGUuY29tIiwiaWF0IjoxNjc1NTg5MTY0LCJleHAiOjE2NzU2NzU1NjR9.31JYOdt8sIN9qEQo_kEQIMA1Fq7tQpkWio-jbABGrGs
+
+###Ticket apis
+
+
+ 
+### Open new ticket
+POST http://localhost:3002/v1/ticket
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImUyQGUuY29tIiwiaWF0IjoxNjc1NTk3MTA2LCJleHAiOjE2NzU2ODM1MDZ9.mIWo9E9OVl9PF06S9y16qx--VvhwhlrJpou_YmPO92I
+Content-Type: application/json 
+
+{
+ "subject": "2 Form Issue",
+ "sender": "Yashashvi",
+ "message": "Contact form still not working. please fix it as soon as possible" 
+}
+
+###Get all the tickets
+GET http://localhost:3002/v1/ticket
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImUyQGUuY29tIiwiaWF0IjoxNjc1NTk3MTA2LCJleHAiOjE2NzU2ODM1MDZ9.mIWo9E9OVl9PF06S9y16qx--VvhwhlrJpou_YmPO92I
+
+### Get single ticket
+GET http://localhost:3002/v1/ticket/63df97f09d28c645185c0239
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImUyQGUuY29tIiwiaWF0IjoxNjc1NTk3MTA2LCJleHAiOjE2NzU2ODM1MDZ9.mIWo9E9OVl9PF06S9y16qx--VvhwhlrJpou_YmPO92I
+
+### Reply message to the ticket
+PUT http://localhost:3002/v1/ticket/63df97f09d28c645185c0239
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImUyQGUuY29tIiwiaWF0IjoxNjc1NTk3MTA2LCJleHAiOjE2NzU2ODM1MDZ9.mIWo9E9OVl9PF06S9y16qx--VvhwhlrJpou_YmPO92I
+Content-Type: application/json 
+
+{ 
+    "message": "test message", 
+    "sender": "Yashashvi" 
+}
+
+### Close the ticket
+PATCH http://localhost:3002/v1/ticket/close-ticket/63df97f09d28c645185c0239
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImUyQGUuY29tIiwiaWF0IjoxNjc1NTk3MTA2LCJleHAiOjE2NzU2ODM1MDZ9.mIWo9E9OVl9PF06S9y16qx--VvhwhlrJpou_YmPO92I
+
+### Delete the ticket
+DELETE  http://localhost:3002/v1/ticket/63df97f09d28c645185c0239
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImUyQGUuY29tIiwiaWF0IjoxNjc1NTk3MTA2LCJleHAiOjE2NzU2ODM1MDZ9.mIWo9E9OVl9PF06S9y16qx--VvhwhlrJpou_YmPO92I
+
