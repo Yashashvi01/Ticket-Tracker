@@ -16,18 +16,12 @@ Ticket Tracker is a simple ticket management system designed to help teams track
 1. Clone the repository:
 git clone https://github.com/Yashashvi01/Ticket-Tracker.git
 
-markdown
-
 2. Install dependencies:
 npm install
-
-markdown
 
 3. Configure environment variables (if necessary).
 4. Start the application:
 npm start
-
-markdown
 
 
 ## Usage
